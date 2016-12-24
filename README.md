@@ -70,7 +70,6 @@ public static class ItemExtension
                 return 0;
             }
         }
-    }
-```
+    }```
 
 Happy Counting! :)
