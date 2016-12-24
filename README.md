@@ -60,7 +60,9 @@ public static class ItemExtension
                 {
                     foreach (var result in results)
                     {
+                    
                         var res = result.GetItem();
+                        
                     }
                     
                     return results.Count;
