@@ -53,23 +53,23 @@ namespace Sitecore.SharedSource.ChildItemCount.Commands
                     }
                     else if (!string.IsNullOrWhiteSpace(args.Result))
                     {
-                        string msg = ItemCount(args.Result);
-                        if (msg.StartsWith("No result found."))
+                        string result = ItemCount(args.Result);
+                        if (result.StartsWith("No result found."))
                         {
 
                             if (!string.IsNullOrWhiteSpace(args.Parameters["Error"]))
                             {
-                                args.Parameters["Error"] = msg;
+                                args.Parameters["Error"] = result;
                             }
                             else
                             {
-                                args.Parameters.Add("Error", msg);
+                                args.Parameters.Add("Error", result);
                             }
                             ShowResult(args);
                         }
                         else
                         {
-                            SheerResponse.Alert(msg, false);
+                            SheerResponse.Alert(result, false);
                         }
                     }
                 }
@@ -116,24 +116,24 @@ namespace Sitecore.SharedSource.ChildItemCount.Commands
 
         private void ShowResult(ClientPipelineArgs args)
         {
-            string msg = ItemCount();
-            if (msg.StartsWith("No result found."))
+            string result = ItemCount();
+            if (result.StartsWith("No result found."))
             {
-                SheerResponse.Alert(msg, false);
+                SheerResponse.Alert(result, false);
             }
             else if (!string.IsNullOrWhiteSpace(args.Parameters["Error"]))
             {
                 if (!string.IsNullOrWhiteSpace(args.Parameters["title"]))
                 {
-                    msg += "\n" + args.Parameters["title"];
+                    result += "\n" + args.Parameters["title"];
                 }
                 else
                 {
-                    msg += "\n Do you want to specify the template id?";
+                    result += "\n Do you want to specify the template id?";
                 }
 
-                msg += "\n" + args.Parameters["Error"];
-                SheerResponse.Input(msg, "");
+                result += "\n" + args.Parameters["Error"];
+                SheerResponse.Input(result, "");
                 args.WaitForPostBack();
 
             }
@@ -141,14 +141,14 @@ namespace Sitecore.SharedSource.ChildItemCount.Commands
             {
                 if (!string.IsNullOrWhiteSpace(args.Parameters["title"]))
                 {
-                    msg += "\n" + args.Parameters["title"];
+                    result += "\n" + args.Parameters["title"];
                 }
                 else
                 {
-                    msg += "\n Do you want to specify the template id?";
+                    result += "\n Do you want to specify the template id?";
                 }
 
-                SheerResponse.Input(msg, "");
+                SheerResponse.Input(result, "");
                 args.WaitForPostBack();
             }
         }
