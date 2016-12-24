@@ -26,7 +26,7 @@ In order to handle this you will need to increase value of LuceneQueryClauseCoun
 
 ![Error_Solution](http://nikkipunjabi.com/Sitecore/ChildItemCount/5-Error_Solution.png "Error_Solution")
 
-# ExtensionMethod
+### ExtensionMethod
 
 I've also created an below extension method, so you can use and modify as per requirement.
 ```
