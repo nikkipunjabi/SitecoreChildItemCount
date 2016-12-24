@@ -34,58 +34,40 @@ I've also created an below extension method, so you can use and modify as per re
 ```Extension_Method
 public static class ItemExtension
     {
-    
         public static int GetallItemsCount(this Item item, string itemPath, string templateID = null)
         {
-        
             var indexable = (SitecoreIndexableItem)item;
             using (var context = ContentSearchManager.GetIndex(indexable).CreateSearchContext())
             {
-            
                 List<SearchResultItem> results = null;
-                
                 if (string.IsNullOrWhiteSpace(templateID))
                 {
-                
                     results = context.GetQueryable<SearchResultItem>().Where(x => x.Path.StartsWith(itemPath + "/") && x.Language == item.Language.Name).ToList();
-                    
                 }
-                
                 else
                 {
-                
                     Guid guidOutput = new Guid();
                     bool isTemplateIDGUID = Guid.TryParse(templateID, out guidOutput);
-                    
                     if (isTemplateIDGUID)
                     {
-                    
                         //Applied Language Check because it was fetching same item for all the different languages if any.
                         //In this case -- If the child item doesn't exist with the current selected Language then it won't be displayed.
                         results = context.GetQueryable<SearchResultItem>().Where(x => x.Path.StartsWith(itemPath + "/")).ToList();
                         results = results.Where(x => x.TemplateId == new ID(templateID) && x.Language == item.Language.Name).ToList();
                     }
-                    
                 }
-                
                 if (results != null && results.Count > 0)
                 {
-                
                     foreach (var result in results)
                     {
-                    
                         var res = result.GetItem();
-                        
                     }
-                    
                     return results.Count;
-                    
                 }
 
                 return 0;
             }
         }
-    }
-```
+    }```
 
 Happy Counting! :)
