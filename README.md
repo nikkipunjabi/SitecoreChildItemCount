@@ -31,7 +31,8 @@ In order to handle this you will need to increase value of LuceneQueryClauseCoun
 ### Extension Method
 
 I've also created an below extension method, so you can use and modify as per requirement.
-```Extension_Method
+```
+
 public static class ItemExtension
     {
         public static int GetallItemsCount(this Item item, string itemPath, string templateID = null)
@@ -68,6 +69,7 @@ public static class ItemExtension
                 return 0;
             }
         }
-    }```
+    }
+    ```
 
 Happy Counting! :)
