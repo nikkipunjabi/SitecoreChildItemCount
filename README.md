@@ -2,7 +2,9 @@
 
 Sitecore Child Item Count Module is for getting the child item of the selected item in Content Editor. It also provide an option to specify the template id of child item, if you want to fetch the items of any specific template. It works based on the index. It also check the current Language. If your current selected language is Japanese and if the child item doesn't exist with Japanese language version than it won't include in child count.
 
-# About Sitecore Package
+# Sitecore Package
+
+[Download Package](http://nikkipunjabi.com/Sitecore/ChildItemCount/Sitecore%20Child%20Item%20Count-0.0.0.1.zip)
 
 This package contains below files and item.
  - Sitecore.SharedSource.ChildItemCount.config
@@ -60,7 +62,9 @@ public static class ItemExtension
                     {
                         var res = result.GetItem();
                     }
+                    
                     return results.Count;
+                    
                 }
 
                 return 0;
