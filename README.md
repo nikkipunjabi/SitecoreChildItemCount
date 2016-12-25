@@ -30,7 +30,7 @@ In order to handle this you will need to increase value of LuceneQueryClauseCoun
 
 ### Extension Method
 
-I've also created an below extension method, so you can use and modify as per requirement.
+I've written below extension method, so you can use and modify as per requirement. Also you can update the logic to fetch the data based on fast query if needed.
 
 ```
 public static class ItemExtension
